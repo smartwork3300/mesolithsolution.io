@@ -1,18 +1,16 @@
 <?php
 
-$name= $_POST['name'];
-$visitor_email=$_POST['email'];
-$visitor_number=$_POST['number'];
-$message=$_POST['message'];
+if(isset($_POST['submit'])){
+    $name=$_pOST['name'];
+    $emailform=$_pOST['email'];
+    $phonenumber=$_pOST['number'];
+    $message=$_pOST['message'];
+    
+$mailTo="info@mesolithsolutions.com";
+$headers="From: ".$mailFrom;
+$txt="you have received an e-mail from ".$name.".\n\n.$message;
 
-$email_from='admin@mesolithsolutions.com';
-$email_subject='New Registration submission';
-$email_body="User name:$name.\n". "User Email:$visitor_email.\n". "User Phone_Number:$visitor_number.\n". "User Message:$message.\n";
-$to ="info@mesolithsolutions.com";
-$headers ="From:$email_from \r\n";
-$headers .="Repaly-To:$visitor_email \r\n";
-$headers .="content-type:text/html\r\n";
-mail($to,$email_subject,$email_body,$headers);
-header("Location:index.html","Location:contact.html");
-
+    mail($mailTo,$emailform,$phonenumber,$txt,$headers);
+    header(Location:index.php?mailsend");
+}
 ?>
