@@ -1,0 +1,2 @@
+// for aminations
+AOS.init();
